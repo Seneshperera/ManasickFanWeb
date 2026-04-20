@@ -9,28 +9,28 @@ const artistPhotos = [
     desc: "The face of Westnahira Drill."
   },
   {
-    url: "https://images.unsplash.com/photo-1598027725944-77e8ca37fc1e?q=80&w=1000&auto=format&fit=crop",
-    title: "Live on Tour",
-    desc: "Dominating the Taprobane stage."
+    url: "https://i.scdn.co/image/ab6761610000e5ebb7ce2af4acbca6785dc9ebf2",
+    title: "Spotify Identity",
+    desc: "Dominating the local streams."
   },
   {
-    url: "https://images.unsplash.com/photo-1516280440502-8618c7d612e3?q=80&w=1000&auto=format&fit=crop",
-    title: "Behind the Noise",
-    desc: "Introspective moments during Kataka."
+    url: "https://i.ytimg.com/vi/goMy1mQSsB0/maxresdefault.jpg",
+    title: "The Billa Era",
+    desc: "Raw, aggressive performance."
   },
   {
-    url: "https://images.unsplash.com/photo-1508973379184-7517410fb0bc?q=80&w=1000&auto=format&fit=crop",
-    title: "Studio Session",
-    desc: "A moment of psychological depth."
+    url: "https://i.ytimg.com/vi/RdF4wUPhAcg/maxresdefault.jpg",
+    title: "Sakura Vibes",
+    desc: "A moment of classical fusion."
   },
   {
-    url: "https://images.unsplash.com/photo-1540039155732-d674d40d12e8?q=80&w=1000&auto=format&fit=crop",
-    title: "Stage Presence",
+    url: "https://i.ytimg.com/vi/_2CPzbCAS4A/maxresdefault.jpg",
+    title: "Live on Stage",
     desc: "Connecting with the Colombo underground."
   },
   {
-    url: "https://images.unsplash.com/photo-1493225457124-a1a2a4f40f0c?q=80&w=1000&auto=format&fit=crop",
-    title: "Vibes Only",
+    url: "https://i.ytimg.com/vi/-Yj1At289rw/maxresdefault.jpg",
+    title: "Deviyange Bare",
     desc: "The energy of the Wickramarathna brothers."
   }
 ];
@@ -80,6 +80,9 @@ const ArtistGallery = () => {
                     src={photo.url} 
                     alt={photo.title} 
                     className="w-full h-full object-cover brightness-105 group-hover:scale-110 group-hover:brightness-125 transition-all duration-700"
+                    onError={(e) => {
+                       e.target.src = 'https://images.genius.com/8040bafbddfa532052c3258ba3ff22fc.1000x1000x1.jpg'; // Fallback
+                    }}
                   />
                   
                   {/* Glassmorphic Info Card */}
@@ -106,7 +109,10 @@ const ArtistGallery = () => {
             whileInView={{ opacity: 1 }}
             className="mt-20 flex justify-center"
           >
-             <button className="px-10 py-4 border border-zinc-800 text-white text-[10px] uppercase tracking-[0.5em] font-black hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+             <button 
+                onClick={() => window.open('https://www.youtube.com/@manasick', '_blank')}
+                className="px-10 py-4 border border-zinc-800 text-white text-[10px] uppercase tracking-[0.5em] font-black hover:bg-white hover:text-black transition-all flex items-center gap-4 group"
+             >
                 Access Full Fan Archive
                 <ExternalLink size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
              </button>
